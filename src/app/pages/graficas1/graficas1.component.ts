@@ -10,6 +10,10 @@ export class Graficas1Component implements OnInit {
   public doughnutChartLabels:string[] = ['Download Sales', 'In-Store Sales', 'Mail-Order Sales'];
   public doughnutChartData:number[] = [350, 450, 100];
   public doughnutChartType:string = 'doughnut';
+  
+  public lineChartOptions:any = {
+    responsive: true
+  };
 
   graficos: any = [
     {
