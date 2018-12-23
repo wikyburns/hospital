@@ -15,6 +15,7 @@ import { SharedModule } from '../shared/shared.module';
 
 // Rutas
 import { PAGES_ROUTES } from './pages.routes';
+import { AccountSettingComponent } from './account-setting/account-setting.component';
 
 
 
@@ -26,7 +27,8 @@ import { PAGES_ROUTES } from './pages.routes';
       Graficas1Component,
       PagesComponent,
       IncrementadorComponent,
-      DonutComponent
+      DonutComponent,
+      AccountSettingComponent
     ],
     exports: [
         DashboardComponent,
