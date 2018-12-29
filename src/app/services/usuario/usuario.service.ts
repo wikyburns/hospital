@@ -5,6 +5,7 @@ import { URL_SERVICES } from 'src/app/config/config';
 import { map } from 'rxjs/operators';
 import swal from 'sweetalert';
 import { Router } from '@angular/router';
+import { SubirArchivoService } from '../subir-archivo/subir-archivo.service';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,7 @@ export class UsuarioService {
   token: string;
   usuario: Usuario;
   constructor(
+    public _subirArchivoService: SubirArchivoService,
     public http: HttpClient,
     public router: Router
     ) { 
@@ -42,13 +44,20 @@ export class UsuarioService {
         
         this.token = resp.token;
 
-        localStorage.setItem( 'id', resp.id );
-        localStorage.setItem( 'token', resp.token );
-        localStorage.setItem( 'usuario', JSON.stringify(resp.usuario) );
+        this.guardarStorage(resp.id, resp.token, resp.usuario);
         
         return true;
       })
     );
+  }
+
+  guardarStorage(id: string, token: string, usuario: Usuario) { 
+    localStorage.setItem( 'id', id );
+    localStorage.setItem( 'token', token );
+    localStorage.setItem( 'usuario', JSON.stringify(usuario) );
+
+    this.usuario = usuario;
+    this.token = token;
   }
 
   estaLogueado () {
@@ -74,6 +83,38 @@ export class UsuarioService {
         swal('Usuario creado', usuario.email, 'success');
         return resp.usuario;
       }));
+  }
+
+  actualizar ( usuario: Usuario ){
+    
+    let url = URL_SERVICES + '/usuario/' + usuario._id;
+    url += '?token=' + this.token;
+    
+    return this.http.put( url, usuario )
+        .pipe(
+          map( (resp: any) => {
+
+            let usuarioDB: Usuario = resp.usuario;
+            this.guardarStorage(usuarioDB._id, this.token, usuarioDB);
+            swal('Usuario actualziado', usuario.nombre, 'success');
+
+            return true;
+          })
+        );
+  }
+
+  cambiarImagen( file: File, id: string ) {
+    
+    this._subirArchivoService.subirArchivo(file, 'usuarios', id)
+        .then( (resp: any) => {
+          this.usuario.img = resp.usuario.img;
+          swal('Imagen actualizada', this.usuario.nombre, 'success');
+          this.guardarStorage( id, this.token, this.usuario );
+        })
+        .catch( resp => {
+          console.log(resp);
+        });
+
   }
 
   

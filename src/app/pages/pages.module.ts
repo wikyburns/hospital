@@ -16,9 +16,8 @@ import { SharedModule } from '../shared/shared.module';
 // Rutas
 import { PAGES_ROUTES } from './pages.routes';
 import { AccountSettingComponent } from './account-setting/account-setting.component';
-
-
-
+import { PipesModule } from '../pipes/pipes.module';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
     declarations: [
@@ -28,7 +27,8 @@ import { AccountSettingComponent } from './account-setting/account-setting.compo
       PagesComponent,
       IncrementadorComponent,
       DonutComponent,
-      AccountSettingComponent
+      AccountSettingComponent,
+      ProfileComponent
     ],
     exports: [
         DashboardComponent,
@@ -40,7 +40,8 @@ import { AccountSettingComponent } from './account-setting/account-setting.compo
       PAGES_ROUTES,
       FormsModule,
       ChartsModule,
-      BrowserModule
+      BrowserModule,
+      PipesModule
     ]
   })
   export class PagesModule {}
