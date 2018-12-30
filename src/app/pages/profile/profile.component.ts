@@ -55,9 +55,8 @@ export class ProfileComponent implements OnInit {
     reader.onloadend = () => {
       
       this.imagenTemp = reader.result.toString();
-      // console.log( reader.result );
 
-    }
+    };
   }
 
   cambiarImagen() {

@@ -9,7 +9,7 @@ import { Graficas1Component } from './graficas1/graficas1.component';
 import { PagesComponent } from './pages.component';
 import { IncrementadorComponent } from '../components/incrementador/incrementador.component';
 import { DonutComponent } from '../components/graficos/donut/donut.component';
-
+import { ModalUploadComponent } from '../components/modal-upload/modal-upload.component';
 
 import { SharedModule } from '../shared/shared.module';
 
@@ -18,6 +18,7 @@ import { PAGES_ROUTES } from './pages.routes';
 import { AccountSettingComponent } from './account-setting/account-setting.component';
 import { PipesModule } from '../pipes/pipes.module';
 import { ProfileComponent } from './profile/profile.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
 
 @NgModule({
     declarations: [
@@ -28,7 +29,9 @@ import { ProfileComponent } from './profile/profile.component';
       IncrementadorComponent,
       DonutComponent,
       AccountSettingComponent,
-      ProfileComponent
+      ProfileComponent,
+      UsuariosComponent,
+      ModalUploadComponent
     ],
     exports: [
         DashboardComponent,
