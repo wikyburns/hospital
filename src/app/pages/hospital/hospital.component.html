@@ -1,0 +1,63 @@
+<div class="row animated fadeIn">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+
+                <input #input (keyup)="buscarHospital( input.value )" class="form-control" type="text" placeholder="Buscar hospital">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row animated fadeIn">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+
+                <div class="mb-3">
+                    <button (click)="nuevoHospital()" class="btn btn-primary"> 
+                        <i class="fa fa-plus"></i>
+                        Nuevo hospital
+                    </button>
+                </div>
+
+                <h3 class="card-title"> Hospitales registrados ( <small> {{ hospitales.length }} </small> )</h3>
+
+                <table class="table table-hover">
+                    <thead>
+                        <th>Imagen</th>
+                        <th>Nombre</th>
+                        <th>Acciones</th>
+                    </thead>
+
+                    <tbody>
+                        <tr *ngFor="let hospital of hospitales">
+                            <td class="w70">
+                                <img (click)="mostrarModal( hospital._id )" [src]="hospital.img | imagen: 'hospital' " class="w50 img-circle pointer">
+                            </td>
+                            <td>{{ hospital.nombre }}</td>
+                            <td>
+                                <button (click)="guardarHospital( hospital )" class="btn btn-primary">
+                                <i class="fa fa-save"></i>
+                              </button>
+
+                                <button (click)="borrarHospital( hospital )" class="btn btn-danger ml-1">
+                                <i class="fa fa-trash-o"></i>
+                              </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- <button (click)="cambiarDesde(-5);" class="btn btn-secondary">
+                  Anteriores
+                </button>
+
+                <button (click)="cambiarDesde(5);" class="btn btn-secondary">
+                    Siguientes
+                  </button> -->
+            </div>
+        </div>
+    </div>
+</div>

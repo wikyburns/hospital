@@ -19,6 +19,9 @@ import { AccountSettingComponent } from './account-setting/account-setting.compo
 import { PipesModule } from '../pipes/pipes.module';
 import { ProfileComponent } from './profile/profile.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
+import { HospitalComponent } from './hospital/hospital.component';
+import { MedicosComponent } from './medicos/medicos.component';
+import { MedicoComponent } from './medicos/medico.component';
 
 @NgModule({
     declarations: [
@@ -31,7 +34,10 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
       AccountSettingComponent,
       ProfileComponent,
       UsuariosComponent,
-      ModalUploadComponent
+      ModalUploadComponent,
+      HospitalComponent,
+      MedicosComponent,
+      MedicoComponent
     ],
     exports: [
         DashboardComponent,
