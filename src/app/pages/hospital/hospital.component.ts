@@ -48,16 +48,16 @@ export class HospitalComponent implements OnInit {
   nuevoHospital() {
     
     //TODO: Hay que solventar este error de TypeScript
-    swal({
-      text: 'Nuevo hospital',
-      content: 'input',
-      buttons: ['Cancelar', 'Crear']
-    })
-    .then(nombre => {
-      this._hospitalService.crearHospital( nombre ).subscribe( resp => {
-        this.cargarHospitales();
-      });
-    });
+    // swal({
+    //   text: 'Nuevo hospital',
+    //   content: 'input',
+    //   buttons: ['Cancelar', 'Crear']
+    // })
+    // .then(nombre => {
+    //   this._hospitalService.crearHospital( nombre ).subscribe( resp => {
+    //     this.cargarHospitales();
+    //   });
+    // });
       
   }
 

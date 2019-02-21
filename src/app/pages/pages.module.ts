@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ChartsModule } from 'ng2-charts';
-import { BrowserModule } from '@angular/platform-browser';
 
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProgressComponent } from './progress/progress.component';
@@ -22,19 +21,20 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
 import { HospitalComponent } from './hospital/hospital.component';
 import { MedicosComponent } from './medicos/medicos.component';
 import { MedicoComponent } from './medicos/medico.component';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
     declarations: [
       DashboardComponent,
       ProgressComponent,
       Graficas1Component,
-      PagesComponent,
+      // PagesComponent,
       IncrementadorComponent,
       DonutComponent,
       AccountSettingComponent,
       ProfileComponent,
       UsuariosComponent,
-      ModalUploadComponent,
+      // ModalUploadComponent,
       HospitalComponent,
       MedicosComponent,
       MedicoComponent
@@ -45,11 +45,11 @@ import { MedicoComponent } from './medicos/medico.component';
         Graficas1Component
     ],
     imports: [
+      CommonModule,
       SharedModule,
       PAGES_ROUTES,
       FormsModule,
       ChartsModule,
-      BrowserModule,
       PipesModule
     ]
   })
