@@ -10,6 +10,7 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
 import { HospitalComponent } from './hospital/hospital.component';
 import { MedicosComponent } from './medicos/medicos.component';
 import { MedicoComponent } from './medicos/medico.component';
+import { BusquedaComponent } from './busqueda/busqueda.component';
 
 const pagesRoutes: Routes = [
     {path: 'dashboard', component: DashboardComponent, data: {title: 'Dashboard'}},
@@ -17,6 +18,8 @@ const pagesRoutes: Routes = [
     {path: 'graficas1', component: Graficas1Component, data: {title: 'Graficas'}},
     {path: 'account-settings', component: AccountSettingComponent, data: {title: 'Ajuste de cuenta'}},
     {path: 'profile', component: ProfileComponent, data: {title: 'User Profile'}},
+    {path: 'busqueda/:termino', component: BusquedaComponent, data: {title: 'Buscador'}},
+
     // Mantenimientos
     {path: 'usuarios', component: UsuariosComponent, data: {title: 'Manteniemiento de usuarios'}},
     {path: 'hospitales', component: HospitalComponent, data: {title: 'Manteniemiento de hospitales'}},

@@ -36,7 +36,7 @@
                     <tbody>
                         <tr *ngFor="let medico of medicos">
                             <td>
-                                <img [src]=" medico.img | imagen: 'medicos' " class="w50 img-circle pointer">
+                                <img [src]="medico.img | imagen: 'medico'" class="w50 img-circle pointer">
                             </td>
                             <td>{{ medico.nombre }}</td>
                             <td>{{ medico.hospital.nombre }}</td>
